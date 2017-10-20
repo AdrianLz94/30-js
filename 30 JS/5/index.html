@@ -1,0 +1,127 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>------------</title>
+      <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+      <style>
+        html {
+          box-sizing: border-box;
+          background:#ffc600;
+          font-family:'helvetica neue';
+          font-size: 20px;
+          font-weight: 200;
+        }
+        body {
+          margin: 0;
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        .panels {
+          min-height:100vh;
+          overflow: hidden;
+          display: flex;
+        }
+        .panel {
+          background:#6B0F9C;
+          box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+          color:brown;
+          text-align: center;
+          align-items:center;
+          /* Safari transitionend event.propertyName === flex */
+          /* Chrome + FF transitionend event.propertyName === flex-grow */
+          transition:
+            font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+            flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+            background 1s;
+          font-size: 20px;
+          background-size:cover;
+          background-position:center;
+          flex: 1;
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+        }
+        .panel1 { background-image:url(http://3.bp.blogspot.com/-5k5JWs7ImTc/TubW6s9kiKI/AAAAAAAADg0/4OodUoipBzY/s1600/Messier+083+07+by+Spitzer.jpg); }
+        .panel2 { background-image:url(https://image.shutterstock.com/z/stock-vector-happy-people-hand-drawn-seamless-pattern-of-a-crowd-of-many-different-people-from-diverse-ethnic-296154869.jpg); }
+        .panel3 { background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIJrywsBDypb9j5ML5UX-1D_Plfh-CP1lOyieSWa00estyGm4Wug); }
+        .panel4 { background-image:url(https://img1.etsystatic.com/135/0/9223994/iss_fullxfull.2547509_dkrkp2sd.jpg); }
+        .panel5 { background-image:url(data:image/png;base64,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); }
+        /* Flex Items */
+        .panel > * {
+          margin:0;
+          width: 100%;
+          transition:transform 0.5s;
+          flex: 1 0 auto;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .panel > *:first-child { transform: translateY(-100%); }
+        .panel.open-active > *:first-child { transform: translateY(0); }
+        .panel > *:last-child { transform: translateY(100%); }
+        .panel.open-active > *:last-child { transform: translateY(0); }
+        .panel p {
+          text-transform: uppercase;
+          font-family: 'Amatic SC', cursive;
+          text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+          font-size: 2em;
+        }
+        .panel p:nth-child(2) {
+          font-size: 4em;
+        }
+        .panel.open {
+          flex: 5;
+          font-size:40px;
+        }
+      </style>
+    
+    
+      <div class="panels">
+        <div class="panel panel1">
+          <p>Let's</p>
+          <p>Hey</p>
+          <p>Dance</p>
+        </div>
+        <div class="panel panel2">
+          <p>Give</p>
+          <p>Hello</p>
+          <p>Receive</p>
+        </div>
+        <div class="panel panel3">
+          <p>Experience</p>
+          <p>Mundo</p>
+          <p>Today</p>
+        </div>
+        <div class="panel panel4">
+          <p>Give</p>
+          <p>de</p>
+          <p>You can</p>
+        </div>
+        <div class="panel panel5">
+          <p>Life</p>
+          <p>Graficacion</p>
+          <p>Motion</p>
+        </div>
+      </div>
+    
+      <script>
+        const panels = document.querySelectorAll('.panel');
+        function toggleOpen() {
+          console.log('Hello');
+          this.classList.toggle('open');
+        }
+        function toggleActive(e) {
+          console.log(e.propertyName);
+          if (e.propertyName.includes('flex')) {
+            this.classList.toggle('open-active');
+          }
+        }
+        panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+        panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+      </script>
+    
+    </body>
+    </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies Duration</title>
+</head>
+<body>
+  <ul class="Movies">
+    <li data-time="5:43">
+        Interstellar
+    </li>
+    <li data-time="2:33">
+        BabyDriver
+    </li>
+    <li data-time="3:45">
+        Dunkerque
+    </li>
+    <li data-time="0:47">
+        It
+    </li>
+    <li data-time="5:21">
+        Scarface
+    </li>
+
+  </ul>
+<script>
+  const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+  const seconds = timeNodes
+    .map(node => node.dataset.time)
+    .map(timeCode => {
+      const [mins, secs] = timeCode.split(':').map(parseFloat);
+      return (mins * 60) + secs;
+    })
+    .reduce((total, vidSeconds) => total + vidSeconds);
+    let secondsLeft = seconds;
+    const hours = Math.floor(secondsLeft / 3600);
+    secondsLeft = secondsLeft % 3600;
+    const mins = Math.floor(secondsLeft / 60);
+    secondsLeft = secondsLeft % 60;
+    console.log(hours, mins, secondsLeft);
+</script>
+</body>
+</html>

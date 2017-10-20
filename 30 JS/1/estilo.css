@@ -1,0 +1,50 @@
+html {
+    font-size: 10px;
+    background: url(https://www.google.com.mx/imgres?imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2FChqzK_kADUE%2Fmaxresdefault.jpg&imgrefurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DChqzK_kADUE&docid=BNki-v1AYXW7FM&tbnid=KYnX5hFYillkbM%3A&vet=10ahUKEwjOiKa_2YTWAhWCKGMKHQODBvsQMwhMKAUwBQ..i&w=1280&h=720&bih=652&biw=1366&q=mario%20y%20luigi%20dj&ved=0ahUKEwjOiKa_2YTWAhWCKGMKHQODBvsQMwhMKAUwBQ&iact=mrc&uact=8) bottom center;
+    background-size: cover;
+  }
+  body,html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  .keys {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .key {
+    border: .4rem solid black;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 .5rem black;
+  }
+  
+  .playing {
+    transform: scale(1.1);
+    border-color: #FF0004;
+    box-shadow: 0 0 1rem #FF0004;
+  }
+  
+  kbd {
+    display: block;
+    font-size: 4rem;
+  }
+  
+  .sound {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #FF0004;
+  }

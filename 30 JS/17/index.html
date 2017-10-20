@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sort Without Articles</title>
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://www.gocosmos.org/wp-content/uploads/2017/01/Cosmos3.jpg");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+    #movies {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(140,40,140, 0.5);
+    }
+    #movies li {
+      border-bottom: 1px solid #000000;
+      padding: 20px;
+    }
+    #movies li:last-child {
+      border-bottom: 0;
+    }
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+  </style>
+    
+  <ul id="movies"></ul>
+
+<script>
+const movies = ['Interstellar', 'Gravity', '50/50', 'It', 'The origin', 'Dunkerque', 'Batman', 'Daredevil', 'Superman', 'If I Stay', 'Mother', 'Baby Driver', 'Scarface'];
+function strip(movieName) {
+  return movieName.replace(/^(a |the |an )/i, '').trim();
+}
+const sortedMovies = movies.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+document.querySelector('#movies').innerHTML =
+  sortedMovies
+    .map(movie => `<li>${movie}</li>`)
+    .join('');
+console.log(sortedMovies);
+</script>
+
+</body>
+</html>

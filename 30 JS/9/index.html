@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeBlue()">los primeros 2 años humanos equivalen a 24 en gatos despues equivalen a 4 años</p>
+
+  <script>
+    const kats = [{ name: 'Bob Toronja', age: 5 }, { name: 'Patrick Star ', age: 18 }];
+    function makeBlue() {
+      const p = document.querySelector('p');
+      p.style.color = '#0000FF';
+      p.style.fontSize = '50px';
+    }
+    // Regular
+    console.log('hello');
+    // Interpolated
+    console.log('Hello I am a %s string!', '');
+    // Styled
+    // console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
+    // warning!
+    console.warn('OH NOOO NOOOO NOOOO!!!');
+    // Error :|
+    console.error('Whut!!');
+    // Info
+    console.info('A finales de 2008 el Oso Polar se agregó oficialmente a la lista de los Estados Unidos de Especies Amenazadas.');
+    // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('douh'), 'That is wrong!');
+    // clearing
+    console.clear();
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+    console.clear();
+    // Grouping together
+    kats.forEach(kat => {
+      console.groupCollapsed(`${kat.name}`);
+      console.log(`This is ${kat.name}`);
+      console.log(`${kat.name} is ${kat.age} years old`);
+      console.log(`${kat.name} is ${((kat.age -2)* 4)+24} kaTs years old`);
+      console.groupEnd(`${kat.name}`);
+    });
+    // counting
+    console.count('Val');
+    console.count('Val');
+    console.count('Lili');
+    console.count('Lili');
+    console.count('Val');
+    console.count('Lili');
+    console.count('Val');
+    console.count('Lili');
+
+    // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+    console.table(kats);
+  </script>
+</body>
+</html>

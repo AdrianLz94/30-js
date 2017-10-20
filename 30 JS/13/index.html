@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <h1>Slide in on Scroll</h1>
+
+    <p>Las nebulosas son regiones del medio interestelar constituidas por gases (principalmente hidrógeno y helio) además de elementos químicos en forma de polvo cósmico.</p>
+    <p>Tienen una importancia cosmológica notable porque muchas de ellas son los lugares donde nacen las estrellas por fenómenos de condensación y agregación de la materia; en otras ocasiones se trata de los restos de estrellas ya extintas o en extinción.</p>
+    <p>Las nebulosas asociadas con estrellas jóvenes se localizan en los discos de las galaxias espirales y en cualquier zona de las galaxias irregulares, pero no se suelen encontrar en galaxias elípticas puesto que estas apenas poseen fenómenos de formación estelar y están dominadas por estrellas muy viejas. El caso extremo de una galaxia en la que muchas nebulosas presentan intensos episodios de formación estelar se denomina galaxia starburst.</p>
+  
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Antennae_galaxies_xl.jpg/604px-Antennae_galaxies_xl.jpg">
+
+    <p>Una supernova (del latín nova, «nueva») es una explosión estelar que puede manifestarse de forma muy notable, incluso a simple vista, en lugares de la esfera celeste donde antes no se había detectado nada en particular.</p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Keplers_supernova.jpg/800px-Keplers_supernova.jpg" class="align-right slide-in">
+
+    <p> Una galaxia es un conjunto de estrellas, nubes de gas, planetas, polvo cósmico, materia oscura y energía unidos gravitatoriamente con una estructura más o menos definida. La palabra «galaxia» procede de los griegos, los cuales atribuían el nacimiento de una galaxia a las gotas de leche derramadas en el universo por la diosa Hera mientras alimentaba a su hijo Hercules. La cantidad de estrellas que forman una galaxia es enorme y varía desde las galaxias enanas, con 107, hasta las galaxias gigantes, con 1014 estrellas. Formando parte de una galaxia existen subestructuras como las nebulosas, los cúmulos estelares y los sistemas estelares múltiples.</p>
+
+    <img src="https://ugc.kn3.net/i/origin/http://historiasinsolitas.com/imagenes/postales/1359607490.png" class="align-left slide-in">
+
+<p>Las galaxias tienen cuatro configuraciones distintas: elípticas, espirales, lenticulares e irregulares. Una descripción algo más detallada, basada en su apariencia, es la provista por la secuencia de Hubble, propuesta en el año 1936. Este esquema, que solo descansa en la apariencia visual, no toma en cuenta otros aspectos, tales como la tasa de formación de estrellas o la actividad del núcleo galáctico.</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Hubble_sequence_photo.png/280px-Hubble_sequence_photo.png" class="align-left slide-in">
+
+<p> Tipos de galaxias de acuerdo al esquema de clasificación de Hubble.                                                                                                                  </p>
+
+  </div>
+ 
+  <script>
+    function debounce(func, wait = 20, immediate = true) {
+      var timeout;
+      return function() {
+        var context = this, args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    };
+    const sliderImages = document.querySelectorAll('.slide-in');
+    function checkSlide() {
+      sliderImages.forEach(sliderImage => {
+        // half way through the image
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        // bottom of the image
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+        if (isHalfShown && isNotScrolledPast) {
+          sliderImage.classList.add('active');
+        } else {
+          sliderImage.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', debounce(checkSlide));
+  </script>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      background:#000000;
+      font-family:'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+    body {
+      margin: 0;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    .site-wrap {
+      max-width: 700px;
+      margin: 100px auto;
+      background:white;
+      padding:40px;
+      text-align: justify;
+    }
+    .align-left {
+      float:left;
+      margin-right:20px;
+    }
+    .align-right {
+      float:right;
+      margin-left:20px;
+    }
+    .slide-in {
+      opacity:0;
+      transition:all .5s;
+    }
+    .align-left.slide-in {
+      transform:translateX(-30%) scale(0.95);
+    }
+    .align-right.slide-in {
+      transform:translateX(30%) scale(0.95);
+    }
+    .slide-in.active {
+      opacity:1;
+      transform:translateX(0%) scale(1);
+    }
+  </style>
+
+</body>
+</html>
